@@ -5,8 +5,8 @@
     <p @click="sortByDate()">Дата рождения</p>
     <p>email</p>
     <p>Телефон</p>
-    <p>Дистанция</p>
-    <p>Сумма взноса</p>
+    <p @click="sortByDistance()">Дистанция</p>
+    <p @click="sortByCash()">Сумма взноса</p>
     <p>Дата регистрации</p>
   </div>
   <div class="v-table__body">
@@ -66,7 +66,12 @@ name: "v-table",
 
     sortByDate() {
       this.users_data.sort((a,b) => a.date.localeCompare(b.date) )
-
+    },
+    sortByCash() {
+      this.users_data.sort((a,b) => a.payment - b.payment )
+    },
+    sortByDistance() {
+      this.users_data.sort((a,b) => a.distance - b.distance )
     }
   },
 }
